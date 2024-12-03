@@ -1,0 +1,64 @@
+import java.util.Scanner;
+class LinearSearch{
+    boolean lsearch(int arr[], int key){
+        for (int element:arr){
+            if(element==key){
+            return true;
+        }
+        }
+            return false;
+        }
+    boolean lsearch(double arr[], double key){
+        for (double element:arr){
+            if(element==key){
+            return true;
+        }
+        }
+            return false;
+        }
+    boolean lsearch(char arr[], char key){
+        for (char element:arr){
+            if(element==key){
+            return true;
+        }
+        }
+            return false;
+        }
+}
+
+public class LinearSearchDemo {
+    public static void main(String[] args){
+    LinearSearch LS=new LinearSearch();
+    int iarr[]={1,2,3,4,5};
+    double darr[]={1.0,2.0,3.0,4.0};
+    char carr[]={'a','b','c','d'};
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter the integer key:");
+    int ikey=sc.nextInt();
+     System.out.println("Enter the double key:");
+    double dkey=sc.nextDouble();
+     System.out.println("Enter the character key:");
+    char ckey=sc.next().charAt(0);
+    boolean ires=LS.lsearch(iarr, ikey);
+      if (ires==true){
+          System.out.println("Key element "+ikey+" is found in the integer array.");
+      }
+      else{
+          System.out.println("Key element "+ikey+" is not found in the integer array.");
+      }
+     boolean dres=LS.lsearch(darr, dkey);
+      if (dres==true){
+          System.out.println("Key element "+dkey+" is found in the double array.");
+      }
+      else{
+          System.out.println("Key element "+dkey+" is not found in the double  array.");
+      }
+    boolean cres=LS.lsearch(carr, ckey);
+      if (cres==true){
+          System.out.println("Key element "+ckey+" is found in the char array.");
+      }
+      else{
+          System.out.println("Key element "+ckey+" is not found in the char  array.");
+      }
+}
+}
