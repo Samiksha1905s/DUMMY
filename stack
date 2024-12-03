@@ -1,0 +1,114 @@
+// Stack Class
+class Stack {
+    int[] istk; // Integer stack
+    String[] sstk; // String stack
+    int topInt, topStr; // Top pointers for integer and string stacks
+    int maxSize; // Maximum size of the stack
+
+    // Constructor to initialize stacks
+    Stack(int size) {
+        maxSize = size;
+        istk = new int[maxSize];
+        sstk = new String[maxSize];
+        topInt = -1;
+        topStr = -1;
+    }
+
+    // Push integer value onto the integer stack
+    void push(int value) {
+        if (topInt == maxSize - 1) {
+            System.out.println("Integer stack is full!");
+        } else {
+            istk[++topInt] = value;
+            System.out.println("Pushed integer: " + value);
+        }
+    }
+
+    // Push string value onto the string stack
+    void push(String value) {
+        if (topStr == maxSize - 1) {
+            System.out.println("String stack is full!");
+        } else {
+            sstk[++topStr] = value;
+            System.out.println("Pushed string: " + value);
+        }
+    }
+
+    // Pop integer value from the integer stack
+    int popInt() {
+        if (topInt == -1) {
+            System.out.println("Integer stack is empty!");
+            return -1;
+        } else {
+            System.out.println("Popped integer: " + istk[topInt]);
+            return istk[topInt--];
+        }
+    }
+
+    // Pop string value from the string stack
+    String popString() {
+        if (topStr == -1) {
+            System.out.println("String stack is empty!");
+            return null;
+        } else {
+            System.out.println("Popped string: " + sstk[topStr]);
+            return sstk[topStr--];
+        }
+    }
+
+    // Peek integer value from the integer stack
+    int peekInt() {
+        if (topInt == -1) {
+            System.out.println("Integer stack is empty!");
+            return -1;
+        } else {
+            System.out.println("Peeked integer: " + istk[topInt]);
+            return istk[topInt];
+        }
+    }
+
+    // Peek string value from the string stack
+    String peekString() {
+        if (topStr == -1) {
+            System.out.println("String stack is empty!");
+            return null;
+        } else {
+            System.out.println("Peeked string: " + sstk[topStr]);
+            return sstk[topStr];
+        }
+    }
+}
+
+// Main Class
+public class StackDemo {
+    public static void main(String[] args) {
+        Stack intStack = new Stack(5); // Integer stack
+        Stack stringStack = new Stack(5); // String stack
+
+        // Push integers
+        intStack.push(10);
+        intStack.push(20);
+        intStack.push(30);
+        intStack.push(40);
+        intStack.push(50);
+
+        // Push strings
+        stringStack.push("Alice");
+        stringStack.push("Bob");
+        stringStack.push("Charlie");
+        stringStack.push("Daisy");
+        stringStack.push("Eve");
+
+        // Pop integers
+        intStack.popInt();
+        intStack.popInt();
+
+        // Pop strings
+        stringStack.popString();
+        stringStack.popString();
+
+        // Peek integers and strings
+        intStack.peekInt();
+        stringStack.peekString();
+    }
+}
