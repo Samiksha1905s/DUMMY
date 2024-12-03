@@ -1,0 +1,88 @@
+class BOOK {
+    String Title;
+    String Author;
+    String Publisher;
+    double Price;
+    double dprice;
+
+    // Constructor for BOOK
+    BOOK(String T, String A, String P, double Pr) {
+        this.Title = T;
+        this.Author = A;
+        this.Publisher = P;
+        this.Price = Pr;
+    }
+
+    // Method to calculate discounted price
+    void discountPrice() {
+        double dp = 0.1 * Price; // 10% discount
+        dprice = Price - dp;
+    }
+
+    // Method to display details
+    void Display() {
+        discountPrice(); // Calculate discount before displaying
+        System.out.println("Title: " + Title);
+        System.out.println("Author: " + Author);
+        System.out.println("Publisher: " + Publisher);
+        System.out.println("Original Price: " + Price);
+        System.out.println("Discounted Price: " + dprice);
+        System.out.println("--------------------------");
+    }
+}
+
+// Subclass KidsStory
+class KidsStory extends BOOK {
+    KidsStory(String T, String A, String P, double Pr) {
+        super(T, A, P, Pr);
+    }
+
+    @Override
+    void discountPrice() {
+        double dp = 0.15 * Price; // 15% discount
+        dprice = Price - dp;
+    }
+}
+
+// Subclass Scientific
+class Scientific extends BOOK {
+    Scientific(String T, String A, String P, double Pr) {
+        super(T, A, P, Pr);
+    }
+
+    @Override
+    void discountPrice() {
+        double dp = 0.2 * Price; // 20% discount
+        dprice = Price - dp;
+    }
+}
+
+// Subclass GK
+class GK extends BOOK {
+    GK(String T, String A, String P, double Pr) {
+        super(T, A, P, Pr);
+    }
+
+    @Override
+    void discountPrice() {
+        double dp = 0.25 * Price; // 25% discount
+        dprice = Price - dp;
+    }
+}
+
+// Main Class
+public class BookDemo {
+    public static void main(String[] args) {
+        // Creating objects of different categories
+        BOOK b = new BOOK("Data Structure Using C", "Sumitra Arora", "Thakur Publications Lucknow", 2000);
+        BOOK kb = new KidsStory("Fairy Tales", "Balachandran", "Dream Books", 1500);
+        BOOK sf = new Scientific("The Earth", "John Smith", "SciTech Publishers", 3000);
+        BOOK gk = new GK("General Knowledge", "Quiz Master", "Knowledge Press", 1000);
+
+        // Displaying details
+        b.Display();
+        kb.Display();
+        sf.Display();
+        gk.Display();
+    }
+}
