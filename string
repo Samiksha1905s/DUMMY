@@ -1,0 +1,25 @@
+public class StringOperations {
+    public static void main(String[] args) {
+        String sentence = "Java is often used for building cross-platform applications";
+
+        // Convert sentence to uppercase
+        String upperCaseSentence = sentence.toUpperCase();
+        System.out.println("Uppercase sentence: " + upperCaseSentence);
+
+        // Find the first occurrence of the word "Java"
+        int javaPosition = sentence.indexOf("Java");
+        if (javaPosition != -1) {
+            System.out.println("Position of 'Java': " + javaPosition);
+        } else {
+            System.out.println("'Java' not found in the sentence.");
+        }
+
+        // Extract a substring (4th to 10th characters)
+        String substring = sentence.substring(4, 10);
+        System.out.println("Substring from 5th to 10th character: " + substring);
+
+        // Replace 'o' with 'a'
+        String replacedSentence = sentence.replace('o', 'a');
+        System.out.println("Sentence after replacing 'o' with 'a': " + replacedSentence);
+    }
+}
