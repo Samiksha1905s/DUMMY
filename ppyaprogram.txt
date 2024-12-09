@@ -1,0 +1,283 @@
+PROGRAM 1:
+import math
+
+def quad(a,b,c):
+    if a==0:
+        print("a cant be zero")
+        return
+    d=b**2-(4*a*c)
+    
+    if d>0:
+        root1=(-b+math.sqrt(d))/2*a
+        root2=(-b-math.sqrt(d))/2*a
+        print(f"the real distinct roots are:  {root1}   {root2}")
+    elif d==0:
+        root=-b/2*a
+        print(f"the real and same roots are:  {root}     {root}")
+    else:
+        real=-b/2*a
+        imag=math.sqrt(-d)/2*a
+        print(f"root 1:{real}+{imag:.2f}i")
+        print(f"root 2:{real}-{imag:.2f}i")
+
+a=float(input("enter a: "))
+b=float(input("enter b: "))
+c=float(input("enter c: "))
+
+quad(a,b,c)
+        
+
+PROGRAM 2:
+import math
+def fact1(n):
+    if n<0:
+        print("factorial doesnt exist")
+        return
+    return math.factorial(n)
+
+def fact2(n):
+    if n<0:
+        print("factorial doesnt exist")
+        return
+    fact=1
+    for i in range(1,n+1):
+        fact=fact*i
+    return fact
+
+def fact3(n):
+    if n<0:
+        print("factorial doesnt exist")
+        return
+    if n==0 or n==1:
+        return 1
+    return n*fact3(n-1)
+
+print(fact1(4))
+print(fact2(4))
+print(fact3(4))
+
+
+PROGRAM 3:
+def avg(n):
+    if n<0:
+        print("not valid ")
+        return
+    sum=(n*(n+1))/2
+    avg=sum/n
+    return avg
+n=int(input("enter a number "))
+print(avg(n))
+
+PROGRAM 4:
+def calc(start ,end):
+    e=[]
+    o=[]
+    esum=0
+    osum=0
+    for num in range(start,end+1):
+        if num%2==0:
+            e.append(num)
+            esum=esum+num
+        else:
+            o.append(num)    
+            osum=osum+num
+
+    return e,esum,o,osum
+
+def main():
+    start=int(input("enet start"))
+    end=int(input("enet end"))
+    e,esum,o,osum=calc(start,end)
+    print(f"e: {e} esum={esum}")
+    print(f"o: {o} osum={osum}")
+
+main()
+
+PROGRAM 5:
+def get_details():
+    name=input("enetr name:")
+    age=int(input("enetr age:"))
+    score=float(input("enetr avg score:"))
+    return (name,age,score)
+
+def main():
+    students=[]
+    for i in range(3):
+        print("enter details for student ",i+1)
+        student=get_details()
+        students.append(student)
+
+    print("list of tuples")    
+    for student in students:
+        print(student)
+
+main()        
+
+PROGRAM 6:
+def w_frequency(sentence):
+    words=sentence.lower().split()
+
+    frequency={}
+
+    for word in words:
+        if word in frequency:
+            frequency[word]+=1
+        else:
+            frequency[word]=1
+
+    return frequency
+
+def main():
+    sentence=input("enetr a sentence: ")
+    frequency=w_frequency(sentence)       
+
+    print("word frequency")
+    for word,count in frequency.items():
+        print(f"{word}: {count}")
+
+main()        
+
+PROGRAM 7:
+def case(string):
+    upper_case=string.upper()
+    lower_case=string.lower()
+    swap_case=string.swapcase()
+    return upper_case,lower_case,swap_case
+
+def main():
+    string=input("enter string:")
+    upper_case,lower_case,swap_case=case(string)
+    print(f"Lower: {lower_case}")
+    print(f"upper: {upper_case}")
+    print(f"swap: {swap_case}")
+main()    
+
+
+PROGRAM 8:
+filename=input("enetr filename: ")
+
+try:
+    with open(filename,'r') as file:
+        content=file.read()
+        words=content.split()
+        print(f"no of words in the file: {len(words)}")
+except FileNotFoundError:
+    print("error file not found")
+
+
+PROGRAM 9:
+def sort_by_name(tuples_list):
+    return sorted(tuples_list , key=lambda x:x[0])
+
+def sort_by_age(tuples_list):
+    return sorted(tuples_list , key=lambda x:x[1])
+
+def sort_by_height(tuples_list):
+    return sorted(tuples_list,key=lambda x:x[2])
+
+def main():
+    print("Enter the tuples in the format: name,age,height (e.g., Tom,19,80).")
+    print("Type 'done' when you're finished entering the tuples.")
+    tuples_list=[]
+    while True:
+        entry=input("enetr tuple")
+        if entry.lower() == 'done':
+            break
+        tuples_list.append(tuple(entry.split(',')))
+        
+    print("choose criteria:")
+    print("1:sort by name")
+    print("2:sort by age")
+    print("3:sort by height")   
+    choice=int(input("enetr choice"))
+
+    if choice==1:
+        sorted_list=sort_by_name(tuples_list)
+    elif choice==2:
+        sorted_list=sort_by_age(tuples_list)
+    elif choice==3:
+        sorted_list=sort_by_height(tuples_list)
+    else:
+        print('invalid choice')
+        return
+
+    print("sorted tuple:")
+    print(sorted_list)   
+main()     
+
+
+PROGRAM 10:
+def generate_squares():
+    squares=[x**2 for x in range(1,21)]
+    print(squares[5::2])
+
+generate_squares()    
+
+
+PROGRAM 11:
+def count_case(sentence):
+    lower_count=0
+    upper_count=0
+    for char in sentence:
+        if char.isupper():
+            upper_count+=1
+        elif char.islower():
+            lower_count+=1
+
+    print(f"Upper: {upper_count}")
+    print(f"lower: {lower_count}")   
+
+sentence=input("enter a sentence")
+count_case(sentence)         
+
+
+PROGRAM 12:
+import math
+
+C=50
+H=30
+
+D=input("enter values seperated with ,").split(',')
+result=[int(math.sqrt((2*C*int(d))/H)) for d in D]
+print(",".join(map(str,result)))
+
+PROGRAM 13:
+import math
+
+class Shape:
+    def area(self):
+        return 0
+    def perimeter(self):
+        return 0
+
+class Circle(Shape):
+    def __init__(self,radius):
+        self.radius=radius
+    def area(self):
+        return math.pi*self.radius**2
+    def perimeter(self):
+        return 2*math.pi*self.radius
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+
+    def area(self):
+        return self.side ** 2
+
+    def perimeter(self):
+        return 4 * self.side      
+        
+circle=Circle(5)        
+print("cirlce area:",round(circle.area(),2),"perimeter: ",round(circle.perimeter(),2))
+
+
+PROGRAM 14:
+def generate_square_dict(n):
+    square_dict={i:i**2 for i in range(1,n+1)}
+    return square_dict
+
+n=int(input("enter a umber:"))
+result=generate_square_dict(n)
+print(result)
+
